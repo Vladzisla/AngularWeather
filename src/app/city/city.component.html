@@ -1,0 +1,10 @@
+<div>
+  <label for="cities">Choose a city:</label>
+  <select name="cities" id="cities">
+    <option *ngFor="let city of cities">
+      {{city.name}}
+    </option>
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">
+</div>
