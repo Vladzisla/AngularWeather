@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {City} from '../interfaces/city.interface';
 import {CityService} from '../city.service';
-import { Observable } from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {WeatherComponent} from '../weather/weather.component';
 import {WeatherService} from '../weather.service';
 
@@ -14,22 +14,25 @@ import {WeatherService} from '../weather.service';
 
 export class CityComponent implements OnInit {
   cities: City[];
-
   constructor(private cityService: CityService, private weatherComponent: WeatherComponent) { }
-  selectedCity: any;
+  selectedCity: string;
   ngOnInit(): void {
     this.getCities();
   }
   getCities(): void{
     this.cityService.getCities()
-      .subscribe(cities => this.cities = cities);
+      .subscribe(cities => {
+        this.cities = cities;
+      });
   }
   getWeather(): void{
     const lat = this.cities.find(el => {
-      return el.name = this.selectedCity.name;
-    } ).lat;
+      console.log(el.name);
+      console.log(this.selectedCity);
+      return el.name === this.selectedCity;
+    }).lat;
     const lon = this.cities.find(el => {
-      return el.name = this.selectedCity.name;
+      return el.name === this.selectedCity;
     } ).lng;
     this.weatherComponent.getWeather(lat, lon);
   }

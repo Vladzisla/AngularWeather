@@ -15,12 +15,20 @@ export class WeatherService {
       .pipe(
         map(
           (data: any) => {
-          // tslint:disable-next-line:prefer-const
-          let weather: Weather;
-          weather.weather = data.data.weather[0].main;
-          weather.temperature = data.data.main.temp;
-          weather.pressure = data.data.main.pressure;
-          weather.wind = data.data.wind.speed;
+            // tslint:disable-next-line:prefer-const new-parens
+          let weather: Weather = new class implements Weather {
+            pressure: any;
+            temperature: any;
+            weather: any;
+            wind: any;
+          };
+          console.log(data);
+            // tslint:disable-next-line:no-debugger
+          debugger;
+          weather.weather = data.weather[0].description;
+          weather.temperature = data.main.temp;
+          weather.pressure = data.main.pressure;
+          weather.wind = data.wind.speed;
           return weather;
         }
       ));

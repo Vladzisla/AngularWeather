@@ -1,10 +1,9 @@
 <div>
   <label for="cities">Choose a city:</label>
-  <select name="cities" id="cities">
-    <option *ngFor="let city of cities" (click)="getWeather()" [(ngModel)] ="selectedCity">
+  <select name="cities" id="cities" (change)="getWeather()" [(ngModel)]="selectedCity">
+    <option value="null" disabled>Select a City</option>
+    <option *ngFor="let city of cities"  ngDefaultControl>
       {{city.name}}
     </option>
   </select>
-  <br><br>
-  <input type="submit" value="Submit">
 </div>
