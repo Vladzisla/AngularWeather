@@ -1,10 +1,10 @@
-<ng-container *ngIf="data$ | async">
-  <span>{{data.weather}}</span>
+<div *ngIf="data">
+  <span>{{data}}</span>
   <br>
-  <span>'Temperature: {{data.temperature}} ℃</span>
+  <span>Temperature: {{data.temperature}} ℃</span>
   <br>
   <span>Pressure: {{data.pressure}}} hPa</span>
   <br>
   <span>Wind speed: {{data.wind}} m/s</span>
-</ng-container>
+</div>
 

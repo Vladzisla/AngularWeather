@@ -18,7 +18,7 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeather(lat, lon): void {
-      this.weatherService.getWeather(lat, lon)
+    this.weatherService.getWeather(lat, lon)
       .subscribe(weather => {this.data = weather;
                              console.log('Data: ' + this.data.weather); });
   }

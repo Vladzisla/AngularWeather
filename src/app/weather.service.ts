@@ -22,9 +22,6 @@ export class WeatherService {
             weather: any;
             wind: any;
           };
-          console.log(data);
-            // tslint:disable-next-line:no-debugger
-          debugger;
           weather.weather = data.weather[0].description;
           weather.temperature = data.main.temp;
           weather.pressure = data.main.pressure;

@@ -27,8 +27,6 @@ export class CityComponent implements OnInit {
   }
   getWeather(): void{
     const lat = this.cities.find(el => {
-      console.log(el.name);
-      console.log(this.selectedCity);
       return el.name === this.selectedCity;
     }).lat;
     const lon = this.cities.find(el => {
