@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {City} from '../interfaces/city.interface';
 import {CityService} from '../city.service';
 import { Observable } from 'rxjs';
+import {WeatherComponent} from '../weather/weather.component';
 
 @Component({
   selector: 'app-city',
@@ -13,7 +14,7 @@ import { Observable } from 'rxjs';
 export class CityComponent implements OnInit {
   cities: City[];
 
-  constructor(private cityService: CityService) { }
+  constructor(private cityService: CityService, weatherComponent: WeatherComponent) { }
 
   ngOnInit(): void {
     this.getCities();
@@ -21,6 +22,9 @@ export class CityComponent implements OnInit {
   getCities(): void{
     this.cityService.getCities()
       .subscribe(cities => this.cities = cities);
+  }
+  getWeather(): void{
+    this.weatherComponent.getWeather()
   }
 
 }

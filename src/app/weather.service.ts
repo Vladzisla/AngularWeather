@@ -14,8 +14,9 @@ export class WeatherService {
     return this.http.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=46328ad92c021e6aea74dfd00146a214&units=metric`)
       .pipe(
         map(
-        data => {
-          const weather: Weather;
+          (data: any) => {
+          // tslint:disable-next-line:prefer-const
+          let weather: Weather;
           weather.weather = data.data.weather[0].main;
           weather.temperature = data.data.main.temp;
           weather.pressure = data.data.main.pressure;
