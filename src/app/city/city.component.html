@@ -1,7 +1,7 @@
 <div>
   <label for="cities">Choose a city:</label>
   <select name="cities" id="cities">
-    <option *ngFor="let city of cities" (click)="getWeather()">
+    <option *ngFor="let city of cities" (click)="getWeather()" [(ngModel)] ="selectedCity">
       {{city.name}}
     </option>
   </select>
